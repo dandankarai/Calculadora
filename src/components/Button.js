@@ -1,34 +1,34 @@
 import React from 'react'
-import { 
-  StyleSheet, 
-  Text, 
+import {
+  StyleSheet,
+  Text,
   Dimensions,
-  TouchableHighlight, 
+  TouchableHighlight,
 } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
     fontSize: 40,
-    height: Dimensions.get('window'). width / 4,
-    width: Dimensions.get('window'). width / 4,
+    height: Dimensions.get('window').width / 4,
+    width: Dimensions.get('window').width / 4,
     padding: 20,
-     backgroundColor: '#f0f0f0',
-     textAlign: "center",
-     borderWidth: 1,
-     borderColor: '#888',
-     borderRadius: 5,
+    backgroundColor: '#f0f0f0',
+    textAlign: "center",
+    borderWidth: 1,
+    borderColor: '#888',
+    borderRadius: 5,
   },
 
-  operationButton:{
+  operationButton: {
     color: '#fff',
     backgroundColor: '#fa8231'
   },
 
-  buttonDouble:{
+  buttonDouble: {
     width: (Dimensions.get('window').width / 4) * 2,
   },
 
-  buttonTriple:{
+  buttonTriple: {
     width: (Dimensions.get('window').width / 4) * 3,
   }
 
@@ -38,14 +38,14 @@ export default props => {
 
   const stylesButton = [styles.button]
 
-  if(props.double) stylesButton.push(styles.buttonDouble)
-  if(props.triple) stylesButton.push(styles.buttonTriple)
-  if(props.operation) stylesButton.push(styles.operationButton)
+  if (props.double) stylesButton.push(styles.buttonDouble)
+  if (props.triple) stylesButton.push(styles.buttonTriple)
+  if (props.operation) stylesButton.push(styles.operationButton)
 
-  return(
-    <TouchableHighlight onPress={props.onClick}>
+  return (
+    <TouchableHighlight onPress={() => props.onClick(props.label)}>
 
-      <Text style={styles.button}>
+      <Text style={stylesButton}>
         {props.label}
       </Text>
 
